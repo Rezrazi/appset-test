@@ -1,3 +1,4 @@
+# root.yaml
 apiVersion: argoproj.io/v1alpha1
 kind: ApplicationSet
 metadata:
@@ -9,7 +10,6 @@ spec:
         elements:
           - name: myapp-applicationset
             path: my-app
-            namespace: my-app
   template:
     metadata:
       name: '{{name}}'
@@ -21,7 +21,7 @@ spec:
         path: '{{path}}'
       destination:
         server: https://kubernetes.default.svc
-        namespace: '{{namespace}}'
+        namespace: argocd
       syncPolicy:
         automated:
           prune: true
