@@ -15,17 +15,14 @@ spec:
     spec:
       project: default
       source:
+        name: nginx
         repoURL: https://charts.bitnami.com/bitnami
         chart: nginx
         targetRevision: 15.5.2
         helm:
           releaseName: '{{name}}'
-          values: |
-            service:
-              type: ClusterIP
       destination:
         server: https://kubernetes.default.svc
-        namespace: '{{namespace}}'
       syncPolicy:
         automated:
           prune: true
